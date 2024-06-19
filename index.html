@@ -57,137 +57,232 @@
 					<img style="height: 1em; padding-top: 2em;" src="img/tikz-generated-expressiveVsUsability.png"
 						alt="expressiveness vs usability spectrum" />
 				</section>
-				<section>
-					<div>Language tend to be integrated through verbosity</div>
-					<pre><code smaller-code data-line-numbers="2-4|6-8|10-12|14-16|18-20|22-25">
-event putThatThere = speech.put; 
-						speech.that + mouse.down〈x1, y1〉; 
-						speech.there + mouse.down〈x2, y2〉;
-				
-event putThisThere = speech.put; 
-					speech.this + mouse.down〈x1, y1〉; 
-					speech.there + mouse.down〈x2, y2〉;
-
-event putThatHere = speech.put; 
-					speech.that + mouse.down〈x1, y1〉; 
-					speech.here + mouse.down〈x2, y2〉;
-
-event putThisHere = speech.put; 
-					speech.this + mouse.down〈x1, y1〉; 
-					speech.here + mouse.down〈x2, y2〉;
-
-event moveThatThere = speech.move; 
-					speech.that + mouse.down〈x1, y1〉; 
-					speech.there + mouse.down〈x2, y2〉;
-			
-event moveThisThere = speech.move; 
-				speech.this + mouse.down〈x1, y1〉; 
-				speech.there + mouse.down〈x2, y2〉;
-
-event moveThatHere = speech.move; 
-				speech.that + mouse.down〈x1, y1〉; 
-				speech.here + mouse.down〈x2, y2〉;
-
-event moveThisHere = speech.move; 
-				speech.this + mouse.down〈x1, y1〉; 
-				speech.here + mouse.down〈x2, y2〉;
+				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
+event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 					</code></pre>
 				</section>
+
+				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
+event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+					</code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
+event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+		
+event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event putThatHere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+
+event putThisHere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+				</code></pre>
 			</section>
+			<section data-auto-animate>
+				<div>Language tend to be integrated through verbosity</div>
+
+				<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
+event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event putThatHere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+
+event putThisHere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+
+event moveThatThere = speech.move; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event moveThisThere = speech.move; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+
+event moveThatHere = speech.move; speech.that + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+
+event moveThisHere = speech.move; speech.this + mouse.down〈x1, y1〉; speech.here + mouse.down〈x2, y2〉;
+		</code></pre>
+		</section>
+		</section>
 
 			<section ummi>
 				<section>
 					<h2>UMMI</h2>
-					<div>FUSION ENGINE</div>
+					<div>Fusion Engine</div>
 				</section>
 				<section>
-					<div style="margin-bottom: 1em;"><b>Speech Centric</b> Fusion Engine</div>
-					<ul>
-						<li>SBert transformer to interpret the language.</li>
-						<li>OOP to write MMIs</li>
+					<div><b>Speech Centric</b> Fusion Engine for Unity</div>
+					
+					<div class="fragment" style="margin-top: 2em;">
+						<div style="font-size: 1em;"><b>Object-Oriented Programming</b><div>
+						<div style="font-size: 0.6em;">To abstract the processing of modalities from the declaration of the interface</div>
+					</div>
+					<div class="fragment" style="margin-top: 1em;">
+						<div style="font-size: 1em;"><b>Semantic Search</b><div>
+						<div style="font-size: 0.6em;">To ease the integration of language as a modality</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<div data-id="slide-title">Declaring a MMI with Ummi</div>
+					<pre data-id="code-animation"><code smaller-code data-trim data-noescape data-line-numbers="1-16|10-15|6-8">
+using ummi.Runtime;
+using Ummi.Runtime.Parser;
+using UnityEngine;
+
+public class MMInterfaceExample : MMInterface {
+	public override void Start() {
+		UserActions.Add(typeof(PutThatThereActions));
+	}
+
+	public static class PutThatThereActions {
+		[UserAction("Put that there")]
+		public static void PutThatThere(GameObject that, Vector3 there) {
+			that.transform.position = there;
+		}
+	}
+}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<div data-id="slide-title">Declaring a MMI with Ummi</div>
+					<pre data-id="code-animation"><code smaller-code data-trim data-noescape data-line-numbers="1-25">
+using ummi.Runtime;
+using Ummi.Runtime.Parser;
+using UnityEngine;
+
+public class MMInterfaceExample : MMInterface {
+	public override void Start() {
+		UserActions.Add(typeof(PutThatThereActions));
+	}
+
+	public static class PutThatThereActions {
+		[UserAction("Put that there")]
+		public static void PutThatThere(GameObject that, Vector3 there) {
+			that.transform.position = there;
+		}
+
+		[UserAction("Create a cube there")]
+		public static void CreateCubeThere(Vector3 there) {
+		  GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		  go.transform.position = there;
+		}
+	}
+}
+					</code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<div data-id="title">Architecture</div>
+					<img data-id="code" class="r-stretch" src="img/architecture.png" alt="unamur" />
+				</section>
+				<section data-auto-animate>
+					<div data-id="title">Architecture</div>
+					<div style="font-size: 0.6em;">Inner Workings of the Fusion Engine</div>
+					<img data-id="code" class="r-stretch" style="margin-top: 1em;" src="img/architecture.png" alt="unamur" />
+
+					<div class="fragment" style="margin-top: 1em;">
+						<div style="font-size: 1em;"><b>Finding the Most Appropriate Method</b><div>
+						<div style="font-size: 0.4em; text-align: right;">... through a Semantic Search.</div>
+					</div>
+					<div class="fragment" style="margin-top: 1em;">
+						<div style="font-size: 1em;"><b>Completing Method Parameters</b><div>
+						<div style="font-size: 0.4em; text-align: right;">... based on the required types.</div>
+					</div>
+				</section>
+				<section>
+					<div>Expected Benefits</div>
+					<ul style="font-size: 0.8em; padding-top: 1em;">
+						<li>High expressiveness for the user, and high usability for the developer</li>
+						<li>Keeps MMI difficulties hidden through OO modelling</li>
 					</ul>
-						
-				</section>
-				<section>
-					<div>Architecture</div>
-					<img class="r-stretch" src="img/architecture.png" alt="unamur" />
-				</section>
-				<section>
-					<div>Writing a MMI with UMMI</div>
-					<pre><code smaller-code data-trim data-noescape data-line-numbers="">
-using ummi.Runtime;
-using Ummi.Runtime.Parser;
-using UnityEngine;
-
-public class MMInterfaceExample : MMInterface {
-	public override void Start() {
-		UserActions.Add(typeof(PutThatThereActions));
-	}
-
-	public static class PutThatThereActions {
-		[UserAction("Put that there")]
-		public static void PutThatThere(GameObject that, Vector3 there) {
-			that.transform.position = there;
-		}
-	}
-}
-					</code></pre>
-				</section>
-
-				<section>
-					<div>Writing a MMI with UMMI</div>
-					<pre><code smaller-code data-trim data-noescape data-line-numbers="10-15">
-using ummi.Runtime;
-using Ummi.Runtime.Parser;
-using UnityEngine;
-
-public class MMInterfaceExample : MMInterface {
-	public override void Start() {
-		UserActions.Add(typeof(PutThatThereActions));
-	}
-
-	public static class PutThatThereActions {
-		[UserAction("Put that there")]
-		public static void PutThatThere(GameObject that, Vector3 there) {
-			that.transform.position = there;
-		}
-	}
-}
-					</code></pre>
-				</section>
-
-				<section>
-					<div>Writing a MMI with UMMI</div>
-					<pre><code smaller-code data-trim data-noescape data-line-numbers="6-8">
-using ummi.Runtime;
-using Ummi.Runtime.Parser;
-using UnityEngine;
-
-public class MMInterfaceExample : MMInterface {
-	public override void Start() {
-		UserActions.Add(typeof(PutThatThereActions));
-	}
-
-	public static class PutThatThereActions {
-		[UserAction("Put that there")]
-		public static void PutThatThere(GameObject that, Vector3 there) {
-			that.transform.position = there;
-		}
-	}
-}
-				</code></pre>
 				</section>
 			</section>
 
 			<section evaluation>
 				<section>
 					<h2>Evaluation</h2>
-					<ul>
-						<li>12 participants</li>
-						<li>SUS Questionnaire</li>
-						<li>Performance</li>
-					</ul>
+					TODO	
 				</section>
+				
+				<section>
+					<h2>Demography</h2>
+					<div style="display: flex; flex-direction: row; height: 10em;">
+						<div style="font-size: medium;align-self: center;">
+							<div style="padding-bottom: 2em; text-align: left;">
+								<h3>12 participants</h3> 
+								<ul>
+									<li>Recruited through a HCI master course.</li>
+									<li>Eleven were between 20 and 25 years old.</li>
+									<li>One was between 25 and 30 years old.</li>
+								</ul>
+							</div>
+							
+							<ul>
+								<li>𝑞1. “How familiar are you with multimodal interfaces?”</li>
+								<li>𝑞2. “How would you define your own experience in multimodal interface development?”</li>
+								<li>𝑞3. “How familiar are you with Object-Oriented programming?”</li>
+								<li>𝑞4. “How familiar are you with strongly typed languages?”</li>
+								<li>𝑞5. “How familiar are you with the C# language?”</li>
+							</ul>
+						</div>
+						<img style="height: 100%;" src="img/tikz-generated-demography.png" alt="demogrpahy">
+					</div>
+				</section>
+
+				<section>
+					<h2>Experiment Setup</h2>
+					TODO
+				</section>
+
+				<section>
+					<h2>Results</h2>
+					<div style="display: flex; flex-direction: row; height: 10em;">
+						<div style="font-size: medium;align-self: center;">
+							<div style="padding-bottom: 2em; text-align: left;">
+								All participants completed the task within 50 minutes, with six
+								finishing in under 30 minutes. The experiment gave an overall SUS
+								score of 71.67 for describing multimodal interfaces through Ummi.
+								Figure 3 shows the percentage of responses for each SUS question.
+								A common way to interpret SUS scores is to compare them to
+								others SUS scores using percentiles according to Sauro [ 24 ]. Any
+								SUS score is above average if > 68, and with an overall SUS score
+								of 71.67 (𝜎 = 23.19), Ummi is in the 60–64 percentile rank and is
+								considered good result according to Bangor et al. [1] adjectives scale.
+								The overall SUS score confirms the hypothesis that Ummi offers
+								good developer usability for integrating speech-centric multimodal
+								commands. Specifically, all participants except two expressed a
+								positive feeling towards Ummi and an above average SUS score
+								EICS Companion ’24, June 24–28, 2024, Cagliari, Italy T. Septon et al.
+								(except for 𝑃6, 𝑃8 and 𝑃9 with SUS scores of 65 (Fair), 20 (Awful)
+								and 32.5 (Poor) respectively).
+								While checking if the different participants correctly realized
+								the task, the experiment conductor took note of the problems that
+								occurred to the participants. First, one participant did not under-
+								stand the idea behind the “UserAction” annotation, as they filled
+								in the required string argument with the method’s name. Also, six
+								participants did not successfully register some actions, as they used
+								types not emitted by the processors detailed inside the instructions.
+								While they understood that the methods required arguments typed
+								as objects emitted by the processors, all of them tried to use an
+								“ICollection<T>” class from C# and used an accepted type as the
+								generic argument (e.g., “List<Item>”).
+								Results show that Ummi scored well for all questions except the
+								first one, where results are more mitigated: 4 participants did not
+								feel they would use the system frequently, while 4 neither disagreed
+								nor agreed. This may be explained by the lack of multimodal in-
+								teraction integration within current frameworks and libraries for
+								desktop and mobile applications. Otherwise, Ummi performs well,
+								with most participants (83%) finding the tool well integrated with-
+								out inconsistencies or added complexity. Also, 67% agreed that the
+								tool would be quick to learn to use, even though all participants
+								agreed that there are not a lot of things to learn to start writing
+								MMIs with Ummi							</div>
+									TODO
+							
+						</div>
+						<img style="height: 100%;" src="img/tikz-generated-graph.png" alt="demogrpahy">
+					</div>
+
+				</section>
+
 			</section>
 
 			<section title>
@@ -208,41 +303,12 @@ public class MMInterfaceExample : MMInterface {
 							<span>Xavier Devroey</span>
 							<span>Bruno Dumas</span>
 						</div>
-					</div>			</section>
+					</div>			
+			</section>
 
 			<section qr>
 				<section>
 					<h2>Further information</h2>
-				</section>
-
-				<section>
-					<h2>Demography</h2>
-					<div style="display: flex; flex-direction: row; height: 10em;">
-						<div style="font-size: medium;align-self: center;">
-							<div style="padding-bottom: 2em; text-align: left;">
-								Participants recruited through a HCI master course. 
-								<br>
-								<ul>
-									<li>Nine were between 20 and 25 years old.</li>
-									<li>One was between 25 and 30 years old.</li>
-								</ul>
-							</div>
-							
-							<ul>
-								<li>𝑞1. “How familiar are you with multimodal interfaces?”</li>
-								<li>𝑞2. “How would you define your own experience in multimodal interface development?”</li>
-								<li>𝑞3. “How familiar are you with Object-Oriented programming?”</li>
-								<li>𝑞4. “How familiar are you with strongly typed languages?”</li>
-								<li>𝑞5. “How familiar are you with the C# language?”</li>
-							</ul>
-						</div>
-						<img style="height: 100%;" src="img/tikz-generated-demography.png" alt="demogrpahy">
-					</div>
-				</section>
-
-				<section>
-					<h2>Experiment Setup</h2>
-					TODO
 				</section>
 
 				<section>
