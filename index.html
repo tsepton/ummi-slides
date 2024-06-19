@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+	<title>
+		Exploiting Semantic Search and Object-Oriented Programming to Ease
+		Multimodal Interface Development
+	</title>
+
+	<link rel="stylesheet" href="dist/reset.css" />
+	<link rel="stylesheet" href="dist/reveal.css" />
+	<link rel="stylesheet" href="dist/theme/white.css" />
+	<link rel="stylesheet" href="styles.css" />
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section title>
+				<h1 class="title">
+					Exploiting Semantic Search and Object-Oriented Programming to Ease
+					Multimodal Interface Development
+				</h1>
+				<div class="footer">
+					<img src="img/nadi.png" alt="nadi" />
+					<img src="img/unamur.png" alt="unamur" />
+					<div class="authors">
+						<span>Thibaut Septon</span>
+						<span>Santiago Villareal-Narvaez</span>
+						<span>Xavier Devroey</span>
+						<span>Bruno Dumas</span>
+					</div>
+				</div>
+			</section>
+
+			<section problematic>
+				<section data-background-image="img/bolt.gif">
+					<h2 class="title" style="color: white">Multimodal Interaction</h2>
+				</section>
+				<section>
+					<h3 class="title">Frameworks and Toolkits</h3>
+					<p class="fragment">HephaisTK</p>
+					<p class="fragment">OpenInterface</p>
+					<p class="fragment">HasseltUIMS</p>
+					<p class="fragment" style="font-style: italic">etc.</p>
+				</section>
+				<section>
+					<h3 class="r-fit-text">Trade off</h3>
+					<h3 class="r-fit-text">between usability and expressiveness</h3>
+					<img style="height: 1em; padding-top: 2em;" src="img/tikz-generated-expressiveVsUsability.png"
+						alt="expressiveness vs usability spectrum" />
+				</section>
+				<section>
+					<div>Language tend to be integrated through verbosity</div>
+					<pre><code smaller-code data-line-numbers="2-4|6-8|10-12|14-16|18-20|22-25">
+event putThatThere = speech.put; 
+						speech.that + mouse.down〈x1, y1〉; 
+						speech.there + mouse.down〈x2, y2〉;
+				
+event putThisThere = speech.put; 
+					speech.this + mouse.down〈x1, y1〉; 
+					speech.there + mouse.down〈x2, y2〉;
+
+event putThatHere = speech.put; 
+					speech.that + mouse.down〈x1, y1〉; 
+					speech.here + mouse.down〈x2, y2〉;
+
+event putThisHere = speech.put; 
+					speech.this + mouse.down〈x1, y1〉; 
+					speech.here + mouse.down〈x2, y2〉;
+
+event moveThatThere = speech.move; 
+					speech.that + mouse.down〈x1, y1〉; 
+					speech.there + mouse.down〈x2, y2〉;
+			
+event moveThisThere = speech.move; 
+				speech.this + mouse.down〈x1, y1〉; 
+				speech.there + mouse.down〈x2, y2〉;
+
+event moveThatHere = speech.move; 
+				speech.that + mouse.down〈x1, y1〉; 
+				speech.here + mouse.down〈x2, y2〉;
+
+event moveThisHere = speech.move; 
+				speech.this + mouse.down〈x1, y1〉; 
+				speech.here + mouse.down〈x2, y2〉;
+					</code></pre>
+				</section>
+			</section>
+
+			<section ummi>
+				<section>
+					<h2>UMMI</h2>
+					<div>FUSION ENGINE</div>
+				</section>
+				<section>
+					<div style="margin-bottom: 1em;"><b>Speech Centric</b> Fusion Engine</div>
+					<ul>
+						<li>SBert transformer to interpret the language.</li>
+						<li>OOP to write MMIs</li>
+					</ul>
+						
+				</section>
+				<section>
+					<div>Architecture</div>
+					<img class="r-stretch" src="img/architecture.png" alt="unamur" />
+				</section>
+				<section>
+					<div>Writing a MMI with UMMI</div>
+					<pre><code smaller-code data-trim data-noescape data-line-numbers="">
+using ummi.Runtime;
+using Ummi.Runtime.Parser;
+using UnityEngine;
+
+public class MMInterfaceExample : MMInterface {
+	public override void Start() {
+		UserActions.Add(typeof(PutThatThereActions));
+	}
+
+	public static class PutThatThereActions {
+		[UserAction("Put that there")]
+		public static void PutThatThere(GameObject that, Vector3 there) {
+			that.transform.position = there;
+		}
+	}
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<div>Writing a MMI with UMMI</div>
+					<pre><code smaller-code data-trim data-noescape data-line-numbers="10-15">
+using ummi.Runtime;
+using Ummi.Runtime.Parser;
+using UnityEngine;
+
+public class MMInterfaceExample : MMInterface {
+	public override void Start() {
+		UserActions.Add(typeof(PutThatThereActions));
+	}
+
+	public static class PutThatThereActions {
+		[UserAction("Put that there")]
+		public static void PutThatThere(GameObject that, Vector3 there) {
+			that.transform.position = there;
+		}
+	}
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<div>Writing a MMI with UMMI</div>
+					<pre><code smaller-code data-trim data-noescape data-line-numbers="6-8">
+using ummi.Runtime;
+using Ummi.Runtime.Parser;
+using UnityEngine;
+
+public class MMInterfaceExample : MMInterface {
+	public override void Start() {
+		UserActions.Add(typeof(PutThatThereActions));
+	}
+
+	public static class PutThatThereActions {
+		[UserAction("Put that there")]
+		public static void PutThatThere(GameObject that, Vector3 there) {
+			that.transform.position = there;
+		}
+	}
+}
+				</code></pre>
+				</section>
+			</section>
+
+			<section evaluation>
+				<section>
+					<h2>Evaluation</h2>
+					<ul>
+						<li>12 participants</li>
+						<li>SUS Questionnaire</li>
+						<li>Performance</li>
+					</ul>
+				</section>
+			</section>
+
+			<section title>
+					<h2></h2>
+					<h1 class="title">Summary</h1>
+					<div class="overview">
+						<img src="img/architecture.png" alt="architecture">
+						<img src="img/architecture.png" alt="architecture">
+						<img src="img/architecture.png" alt="architecture">
+						<img src="img/architecture.png" alt="architecture">
+					</div>
+					<div class="footer">
+						<img src="img/nadi.png" alt="nadi" />
+						<img src="img/unamur.png" alt="unamur" />
+						<div class="authors">
+							<span>Thibaut Septon</span>
+							<span>Santiago Villareal-Narvaez</span>
+							<span>Xavier Devroey</span>
+							<span>Bruno Dumas</span>
+						</div>
+					</div>			</section>
+
+			<section qr>
+				<section>
+					<h2>Further information</h2>
+				</section>
+
+				<section>
+					<h2>Demography</h2>
+					<div style="display: flex; flex-direction: row; height: 10em;">
+						<div style="font-size: medium;align-self: center;">
+							<div style="padding-bottom: 2em; text-align: left;">
+								Participants recruited through a HCI master course. 
+								<br>
+								<ul>
+									<li>Nine were between 20 and 25 years old.</li>
+									<li>One was between 25 and 30 years old.</li>
+								</ul>
+							</div>
+							
+							<ul>
+								<li>𝑞1. “How familiar are you with multimodal interfaces?”</li>
+								<li>𝑞2. “How would you define your own experience in multimodal interface development?”</li>
+								<li>𝑞3. “How familiar are you with Object-Oriented programming?”</li>
+								<li>𝑞4. “How familiar are you with strongly typed languages?”</li>
+								<li>𝑞5. “How familiar are you with the C# language?”</li>
+							</ul>
+						</div>
+						<img style="height: 100%;" src="img/tikz-generated-demography.png" alt="demogrpahy">
+					</div>
+				</section>
+
+				<section>
+					<h2>Experiment Setup</h2>
+					TODO
+				</section>
+
+				<section>
+					<h2>Processor Example</h2>
+					<pre><code data-trim data-noescape smaller-code>public class MouseProcessor : Processor {
+	private void Update() {
+		if (IsClicked()) OnClick(InputToRay());
+	}
+
+	private void OnClick(Ray ray) {
+		if (Camera.main is null) return;
+		int sequenceID = Time.frameCount;
+		WriteFact(ray, sequenceID);
+		if (Physics.Raycast(ray, out RaycastHit hit, 250)) {
+		WriteFact(hit.collider.gameObject, sequenceID);
+		WriteFact(hit.point, sequenceID);
+		}
+	}
+
+	protected bool IsClicked() {
+		return Input.GetMouseButtonDown((int)MouseButton.LeftClick);
+	}
+
+	protected Ray InputToRay() {
+		return Camera.main!.ScreenPointToRay(Input.mousePosition);
+	}
+}</code></pre>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			progress: true,
+			slideNumber: true,
+			controlsLayout: 'edges',
+			highlight: {
+				// highlightOnLoad: false,
+			},
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+		});
+	</script>
+</body>
+
+</html>
