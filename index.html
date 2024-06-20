@@ -21,6 +21,9 @@
 
 <body>
 	<div class="reveal">
+		<div class="footer">
+			Exploiting Semantic Search and Object-Oriented Programming to Ease Multimodal Interface Development - thibaut.septon@unamur.be
+		</div>
 		<div class="slides">
 
 			<section title>
@@ -29,8 +32,9 @@
 					Multimodal Interface Development
 				</h1>
 				<div class="footer">
-					<img src="img/nadi.png" alt="nadi" />
 					<img src="img/unamur.png" alt="unamur" />
+					<img src="img/nadi.png" alt="nadi" />
+					<img src="img/pole-mecatech.svg" alt="unamur" />
 					<div class="authors">
 						<span>Thibaut Septon</span>
 						<span>Santiago Villareal-Narvaez</span>
@@ -57,21 +61,18 @@
 					<img style="height: 1em; padding-top: 2em;" src="img/tikz-generated-expressiveVsUsability.png"
 						alt="expressiveness vs usability spectrum" />
 				</section>
-				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
-event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 					</code></pre>
 				</section>
 
-				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
-event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 					</code></pre>
 				</section>
 
 				<section data-auto-animate>
-					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
-event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 		
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
@@ -83,8 +84,7 @@ event putThisHere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.her
 			<section data-auto-animate>
 				<div>Language tend to be integrated through verbosity</div>
 
-				<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">
-event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+				<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
@@ -113,10 +113,10 @@ event moveThisHere = speech.move; speech.this + mouse.down〈x1, y1〉; speech.h
 					
 					<div class="fragment" style="margin-top: 2em;">
 						<div style="font-size: 1em;"><b>Object-Oriented Programming</b><div>
-						<div style="font-size: 0.6em;">To abstract the processing of modalities from the declaration of the interface</div>
+						<div style="font-size: 0.6em;">To abstract the processing of modalities from the declaration of the multimodal interface</div>
 					</div>
 					<div class="fragment" style="margin-top: 1em;">
-						<div style="font-size: 1em;"><b>Semantic Search</b><div>
+						<div style="font-size: 1em;"><b>Semantic search approach</b><div>
 						<div style="font-size: 0.6em;">To ease the integration of language as a modality</div>
 					</div>
 				</section>
@@ -176,34 +176,28 @@ public class MMInterfaceExample : MMInterface {
 				<section data-auto-animate>
 					<div data-id="title">Architecture</div>
 					<div style="font-size: 0.6em;">Inner Workings of the Fusion Engine</div>
-					<img data-id="code" class="r-stretch" style="margin-top: 1em;" src="img/architecture.png" alt="unamur" />
 
-					<div class="fragment" style="margin-top: 1em;">
-						<div style="font-size: 1em;"><b>Finding the Most Appropriate Method</b><div>
-						<div style="font-size: 0.4em; text-align: right;">... through a Semantic Search.</div>
+					<img data-id="code" class="r-stretch" src="img/architecture.png" alt="unamur" />
+
+					<div class="fragment" style="">
+						<span style="font-size: 0.8em;"><b>Finding the Most Appropriate Method</b><span>
+						<span style="font-size: 0.4em;">... through a Semantic Search.</span>
 					</div>
-					<div class="fragment" style="margin-top: 1em;">
-						<div style="font-size: 1em;"><b>Completing Method Parameters</b><div>
-						<div style="font-size: 0.4em; text-align: right;">... based on the required types.</div>
+					<div class="fragment" style="margin-bottom: 1em;">
+						<span style="font-size: 0.8em;"><b>Completing Method Parameters</b><span>
+						<span style="font-size: 0.4em;">... based on the required types.</span>
 					</div>
-				</section>
-				<section>
-					<div>Expected Benefits</div>
-					<ul style="font-size: 0.8em; padding-top: 1em;">
-						<li>High expressiveness for the user, and high usability for the developer</li>
-						<li>Keeps MMI difficulties hidden through OO modelling</li>
-					</ul>
 				</section>
 			</section>
 
 			<section evaluation>
 				<section>
 					<h2>Evaluation</h2>
-					TODO	
+					<div style="font-size: medium;">Does it offer a good developer usability for integrating speech-centric multimodal commands?</div>	
 				</section>
 				
 				<section>
-					<h2>Demography</h2>
+					<div>Demography</div>
 					<div style="display: flex; flex-direction: row; height: 10em;">
 						<div style="font-size: medium;align-self: center;">
 							<div style="padding-bottom: 2em; text-align: left;">
@@ -223,62 +217,64 @@ public class MMInterfaceExample : MMInterface {
 								<li>𝑞5. “How familiar are you with the C# language?”</li>
 							</ul>
 						</div>
-						<img style="height: 100%;" src="img/tikz-generated-demography.png" alt="demogrpahy">
+						<img style="height: 100%;" src="img/tikz-generated-demography.png" alt="demography">
 					</div>
 				</section>
 
 				<section>
-					<h2>Experiment Setup</h2>
-					TODO
+					<div>Experiment Setup</div>
+					<div style="font-size: 0.8em;">2 sessions</div>
+					<div style="display: flex; gap: 2.5em; justify-content: center; padding-top: 2em;">
+						<div style="">
+							<div>
+								40" long introduction
+							</div>
+							<ol style="font-size: large">
+								<li>Multimodal interface challenges </li>
+								<li>Ummi's approach</li>
+								<li>Setup the experiment environment</li>
+							</ol>
+						</div>
+						<div style="">
+							<div>
+								60" long experiment
+							</div>
+							<ol style="font-size: large">
+								<li>Quick reminder</li>
+								<li>Mockup of Ummi</li>
+								<li>Had to write an interface, not a processor</li>
+								<br>
+								<li>Seven actions</li> 
+								<li>Write the methods signature</li>
+								<li>SUS questionnaire</li>
+							</ol>
+						</div>
+					</div>
+
+					
 				</section>
 
 				<section>
-					<h2>Results</h2>
-					<div style="display: flex; flex-direction: row; height: 10em;">
-						<div style="font-size: medium;align-self: center;">
-							<div style="padding-bottom: 2em; text-align: left;">
-								All participants completed the task within 50 minutes, with six
-								finishing in under 30 minutes. The experiment gave an overall SUS
-								score of 71.67 for describing multimodal interfaces through Ummi.
-								Figure 3 shows the percentage of responses for each SUS question.
-								A common way to interpret SUS scores is to compare them to
-								others SUS scores using percentiles according to Sauro [ 24 ]. Any
-								SUS score is above average if > 68, and with an overall SUS score
-								of 71.67 (𝜎 = 23.19), Ummi is in the 60–64 percentile rank and is
-								considered good result according to Bangor et al. [1] adjectives scale.
-								The overall SUS score confirms the hypothesis that Ummi offers
-								good developer usability for integrating speech-centric multimodal
-								commands. Specifically, all participants except two expressed a
-								positive feeling towards Ummi and an above average SUS score
-								EICS Companion ’24, June 24–28, 2024, Cagliari, Italy T. Septon et al.
-								(except for 𝑃6, 𝑃8 and 𝑃9 with SUS scores of 65 (Fair), 20 (Awful)
-								and 32.5 (Poor) respectively).
-								While checking if the different participants correctly realized
-								the task, the experiment conductor took note of the problems that
-								occurred to the participants. First, one participant did not under-
-								stand the idea behind the “UserAction” annotation, as they filled
-								in the required string argument with the method’s name. Also, six
-								participants did not successfully register some actions, as they used
-								types not emitted by the processors detailed inside the instructions.
-								While they understood that the methods required arguments typed
-								as objects emitted by the processors, all of them tried to use an
-								“ICollection<T>” class from C# and used an accepted type as the
-								generic argument (e.g., “List<Item>”).
-								Results show that Ummi scored well for all questions except the
-								first one, where results are more mitigated: 4 participants did not
-								feel they would use the system frequently, while 4 neither disagreed
-								nor agreed. This may be explained by the lack of multimodal in-
-								teraction integration within current frameworks and libraries for
-								desktop and mobile applications. Otherwise, Ummi performs well,
-								with most participants (83%) finding the tool well integrated with-
-								out inconsistencies or added complexity. Also, 67% agreed that the
-								tool would be quick to learn to use, even though all participants
-								agreed that there are not a lot of things to learn to start writing
-								MMIs with Ummi							</div>
-									TODO
+					<div>Results</div>
+					<div style="display: flex; flex-direction: row;" class="r-stretch">
+						<div style="height: 90%; font-size: medium; display: flex; flex-direction: column; justify-content: space-between ;align-self: center;">
+							<div style="font-size: xx-large;">SUS score of 71.67</div>
+							<div style="font-size: large;">SUS score confirms the hypothesis that Ummi offers good developer usability for integrating speech-centric multimodal commands</div>
+
+								<ul style="font-size: small;">
+									<li>𝑄1 I think that I would like to use this system frequently.</li>
+									<li>𝑄2 I found the system unnecessarily complex.</li>
+									<li>𝑄3 I thought the system was easy to use.</li>
+									<li>𝑄4 I think that I would need the support of a technical person to be able to use this system.</li>
+									<li>𝑄5 I found the various functions in this system were well integrated.</li>
+									<li>𝑄6 I thought there was too much inconsistency in this system.</li>
+									<li>𝑄7 I would imagine that most people would learn to use this system very quickly.</li>
+									<li>𝑄8 I found the system very awkward to use.</li>
+									<li>𝑄9 I felt very confident using the system.</li>
+									<li>𝑄10 I needed to learn a lot of things before I could get going with this system.</li>								</ul>
 							
 						</div>
-						<img style="height: 100%;" src="img/tikz-generated-graph.png" alt="demogrpahy">
+						<img style="max-height: 100%;" src="img/tikz-generated-graph.png" alt="results" />
 					</div>
 
 				</section>
@@ -286,18 +282,18 @@ public class MMInterfaceExample : MMInterface {
 			</section>
 
 			<section title>
-					<h2></h2>
 					<h1 class="title">Summary</h1>
 					<div class="overview">
-						<img src="img/architecture.png" alt="architecture">
-						<img src="img/architecture.png" alt="architecture">
-						<img src="img/architecture.png" alt="architecture">
-						<img src="img/architecture.png" alt="architecture">
+						<img src="img/mmi-overview.png" alt="architecture">
+						<img src="img/architecture-overview.png" alt="architecture">
+						<img src="img/demography-overview.png" alt="architecture">
+						<img src="img/results-overview.png" alt="architecture">
 					</div>
 					<div class="footer">
-						<img src="img/nadi.png" alt="nadi" />
 						<img src="img/unamur.png" alt="unamur" />
-						<div class="authors">
+						<img src="img/nadi.png" alt="nadi" />
+						<img src="img/pole-mecatech.svg" alt="unamur" />
+							<div class="authors">
 							<span>Thibaut Septon</span>
 							<span>Santiago Villareal-Narvaez</span>
 							<span>Xavier Devroey</span>
@@ -312,7 +308,7 @@ public class MMInterfaceExample : MMInterface {
 				</section>
 
 				<section>
-					<h2>Processor Example</h2>
+					<div>Processor Example</div>
 					<pre><code data-trim data-noescape smaller-code>public class MouseProcessor : Processor {
 	private void Update() {
 		if (IsClicked()) OnClick(InputToRay());
@@ -337,6 +333,7 @@ public class MMInterfaceExample : MMInterface {
 	}
 }</code></pre>
 				</section>
+
 			</section>
 		</div>
 	</div>
