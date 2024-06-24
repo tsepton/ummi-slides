@@ -36,7 +36,7 @@
 					<img src="img/nadi.png" alt="nadi" />
 					<img src="img/pole-mecatech.svg" alt="unamur" />
 					<div class="authors">
-						<span>Thibaut Septon</span>
+						<span><u>Thibaut Septon</u></span>
 						<span>Santiago Villareal-Narvaez</span>
 						<span>Xavier Devroey</span>
 						<span>Bruno Dumas</span>
@@ -50,28 +50,59 @@
 				</section>
 				<section>
 					<h3 class="title">Frameworks and Toolkits</h3>
-					<p class="fragment">HephaisTK</p>
-					<p class="fragment">OpenInterface</p>
-					<p class="fragment">HasseltUIMS</p>
-					<p class="fragment" style="font-style: italic">etc.</p>
+					<div style="display: flex; justify-content: space-around;">
+						<div class="fragment">
+							<img style="height: 5em;" src="img/paper-hephaisTK.png" alt="paper overview">
+							<p>HephaisTK</p>
+						</div>
+						<div class="fragment">
+							<img style="height: 5em;" src="img/paper-openinterface.png" alt="paper overview">
+							<p>OpenInterface</p>
+						</div>
+						<div class="fragment">
+							<img style="height: 5em;" src="img/paper-hasseltuims.png" alt="paper overview">
+							<p>HasseltUIMS</p>
+						</div>
+					</div>
 				</section>
-				<section>
+				<section data-auto-animate>
 					<h3 class="r-fit-text">Trade off</h3>
 					<h3 class="r-fit-text">between usability and expressiveness</h3>
-					<img style="height: 1em; padding-top: 2em;" src="img/tikz-generated-expressiveVsUsability.png"
+					<div data-id="spectrum" style="position: relative;">
+						<img style="height: 1em; padding-top: 1em;" src="img/tikz-generated-expressiveVsUsability.png"
 						alt="expressiveness vs usability spectrum" />
+						<div data-id="x-spectrum" style="position: absolute; color: rgb(255, 114, 114); top: 1.55em; right: 5em; opacity: 0;">🗙</div>
+					</div>
 				</section>
-				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+				<section data-auto-animate>
+					<div data-id="spectrum" style="position: relative;">
+						<img style="height: 1em; padding-top: 1em;" src="img/tikz-generated-expressiveVsUsability.png"
+						alt="expressiveness vs usability spectrum" />
+						<div data-id="x-spectrum" style="position: absolute; color: rgb(255, 114, 114); top: 1.55em; right: 7.5em; opacity: 1;">🗙</div>
+					</div>
+					
+					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 					</code></pre>
 				</section>
 
-				<section data-auto-animate>					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
+				<section data-auto-animate>					
+					<div data-id="spectrum" style="position: relative;">
+						<img style="height: 1em; padding-top: 1em;" src="img/tikz-generated-expressiveVsUsability.png"
+						alt="expressiveness vs usability spectrum" />
+						<div data-id="x-spectrum" style="position: absolute; color: rgb(255, 114, 114); top: 1.55em; right: 9em; opacity: 1;">🗙</div>
+					</div>
+					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 					</code></pre>
 				</section>
 
 				<section data-auto-animate>
+					<div data-id="spectrum" style="position: relative;">
+						<img style="height: 1em; padding-top: 1em;" src="img/tikz-generated-expressiveVsUsability.png"
+						alt="expressiveness vs usability spectrum" />
+						<div data-id="x-spectrum" style="position: absolute; color: rgb(255, 114, 114); top: 1.55em; right: 11em; opacity: 1;">🗙</div>
+					</div>
 					<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 		
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
@@ -83,7 +114,11 @@ event putThisHere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.her
 			</section>
 			<section data-auto-animate>
 				<div>Language tend to be integrated through verbosity</div>
-
+				<div data-id="spectrum" style="position: relative;">
+					<img style="height: 1em; padding-top: 1em;" src="img/tikz-generated-expressiveVsUsability.png"
+					alt="expressiveness vs usability spectrum" />
+					<div data-id="x-spectrum" style="position: absolute; color: rgb(255, 114, 114); top: 1.55em; right: 15em; opacity: 1;">🗙</div>
+				</div>
 				<pre data-id="code-hasselt"><code smaller-code data-line-numbers="1-100">event putThatThere = speech.put; speech.that + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
 
 event putThisThere = speech.put; speech.this + mouse.down〈x1, y1〉; speech.there + mouse.down〈x2, y2〉;
@@ -111,18 +146,20 @@ event moveThisHere = speech.move; speech.this + mouse.down〈x1, y1〉; speech.h
 				<section>
 					<div><b>Speech Centric</b> Fusion Engine for Unity</div>
 					
+					<div style="font-size: medium;">Keeping a high usability for the developer, and a high expressivity for the end user.</div>
+					
 					<div class="fragment" style="margin-top: 2em;">
 						<div style="font-size: 1em;"><b>Object-Oriented Programming</b><div>
-						<div style="font-size: 0.6em;">To abstract the processing of modalities from the declaration of the multimodal interface</div>
+						<div style="font-size: 0.6em;">Abstract the processing of modalities from the declaration of the multimodal interface</div>
 					</div>
 					<div class="fragment" style="margin-top: 1em;">
 						<div style="font-size: 1em;"><b>Semantic search approach</b><div>
-						<div style="font-size: 0.6em;">To ease the integration of language as a modality</div>
+						<div style="font-size: 0.6em;">Ease the integration of language as a modality</div>
 					</div>
 				</section>
 				<section data-auto-animate>
 					<div data-id="slide-title">Declaring a MMI with Ummi</div>
-					<pre data-id="code-animation"><code smaller-code data-trim data-noescape data-line-numbers="1-16|10-15|6-8">
+					<pre data-id="code-animation"><code smaller-code data-trim data-noescape data-line-numbers="1-16|10-15">
 using ummi.Runtime;
 using Ummi.Runtime.Parser;
 using UnityEngine;
@@ -169,21 +206,22 @@ public class MMInterfaceExample : MMInterface {
 					</code></pre>
 				</section>
 
-				<section data-auto-animate>
-					<div data-id="title">Architecture</div>
-					<img data-id="code" class="r-stretch" src="img/architecture.png" alt="unamur" />
+				<section>
+					<div>Architecture</div>
+					<div style="font-size: medium;">How does it work?</div>
+					<img class="r-stretch" src="img/architecture.png" alt="unamur" />
 				</section>
-				<section data-auto-animate>
-					<div data-id="title">Architecture</div>
-					<div style="font-size: 0.6em;">Inner Workings of the Fusion Engine</div>
+				<section>
+					<div>Architecture</div>
+					<div style="font-size: medium;">Fusion Example</div>
 
-					<img data-id="code" class="r-stretch" src="img/architecture.png" alt="unamur" />
+					<img class="r-stretch" src="img/fusionexample.png" alt="unamur" />
 
-					<div class="fragment" style="">
+					<div class="fragment">
 						<span style="font-size: 0.8em;"><b>Finding the Most Appropriate Method</b><span>
 						<span style="font-size: 0.4em;">... through a Semantic Search.</span>
 					</div>
-					<div class="fragment" style="margin-bottom: 1em;">
+					<div class="fragment">
 						<span style="font-size: 0.8em;"><b>Completing Method Parameters</b><span>
 						<span style="font-size: 0.4em;">... based on the required types.</span>
 					</div>
@@ -272,7 +310,7 @@ public class MMInterfaceExample : MMInterface {
 									<li>𝑄8 I found the system very awkward to use.</li>
 									<li>𝑄9 I felt very confident using the system.</li>
 									<li>𝑄10 I needed to learn a lot of things before I could get going with this system.</li>								</ul>
-							
+								</ul>
 						</div>
 						<img style="max-height: 100%;" src="img/tikz-generated-graph.png" alt="results" />
 					</div>
@@ -294,7 +332,7 @@ public class MMInterfaceExample : MMInterface {
 						<img src="img/nadi.png" alt="nadi" />
 						<img src="img/pole-mecatech.svg" alt="unamur" />
 							<div class="authors">
-							<span>Thibaut Septon</span>
+							<span><u>Thibaut Septon</u></span>
 							<span>Santiago Villareal-Narvaez</span>
 							<span>Xavier Devroey</span>
 							<span>Bruno Dumas</span>
